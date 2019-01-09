@@ -149,7 +149,7 @@ func (e *ERC20Chaincode) approve(stub shim.ChaincodeStubInterface, args []string
 	value := s2u(args[1])
 
 	setAllowance(stub, sender, spender, value)
-	emitEvent(stub, "Approval", getTransfer(sender, spender, value))
+	emitEvent(stub, "Approval", getApproval(sender, spender, value))
 
 	return shim.Success([]byte("true"))
 }
